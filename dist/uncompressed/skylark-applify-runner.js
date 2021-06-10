@@ -1,8 +1,8 @@
 /**
- * skylark-jsbin-runner - A version of jsbin-runner  that ported to running on skylarkjs.
+ * skylark-applify-runner - The skylark html application runner library
  * @author Hudaokeji, Inc.
  * @version v0.9.0
- * @link https://github.com/skylark-integration/skylark-jsbin-runner/
+ * @link https://github.com/skylark-applify/skylark-applify-runner/
  * @license MIT
  */
 (function(factory,globals) {
@@ -86,7 +86,7 @@
 
 })(function(define,require) {
 
-define('skylark-jsbin-runner/runner',[
+define('skylark-applify-runner/runner',[
   "skylark-langx-ns",
    "skylark-loopprotect"
 ],function (skylark,loopProtect) {
@@ -160,7 +160,7 @@ define('skylark-jsbin-runner/runner',[
      return skylark.attach("appify.runner", runner);
 
 });
-define('skylark-jsbin-runner/proxy-console',[
+define('skylark-applify-runner/proxy-console',[
    "./runner"
 ],function (runner) {
     'use strict';
@@ -243,7 +243,7 @@ define('skylark-jsbin-runner/proxy-console',[
 
   return runner.proxyConsole = proxyConsole;
 });
-define('skylark-jsbin-runner/processor',[
+define('skylark-applify-runner/processor',[
    "skylark-loopprotect",
    "./runner"
 ],function (loopProtect, runner) {
@@ -513,7 +513,7 @@ define('skylark-jsbin-runner/processor',[
 
 });
 
-define('skylark-jsbin-runner/sandbox',[
+define('skylark-applify-runner/sandbox',[
    "skylark-loopprotect",
    "skylark-domx-plugins-sandboxs/sandbox",
    "./runner",
@@ -823,7 +823,7 @@ define('skylark-jsbin-runner/sandbox',[
     };
 
 });
-define('skylark-jsbin-runner/commands',[
+define('skylark-applify-runner/commands',[
    "./runner",
    "./sandbox",
 ],function (runner,sandbox) {
@@ -877,7 +877,7 @@ define('skylark-jsbin-runner/commands',[
     return runner.commands = commands;
 
 });
-define('skylark-jsbin-runner/init',[
+define('skylark-applify-runner/init',[
   "skylark-domx-eventer",
   "./runner",
   "./sandbox",
@@ -927,7 +927,7 @@ define('skylark-jsbin-runner/init',[
 
 });
 
-define('skylark-jsbin-runner/main',[
+define('skylark-applify-runner/main',[
 	"./runner",
 	"./commands",
 	"./processor",
@@ -938,8 +938,8 @@ define('skylark-jsbin-runner/main',[
 ],function(runner){
 	return runner;
 });
-define('skylark-jsbin-runner', ['skylark-jsbin-runner/main'], function (main) { return main; });
+define('skylark-applify-runner', ['skylark-applify-runner/main'], function (main) { return main; });
 
 
 },this);
-//# sourceMappingURL=sourcemaps/skylark-jsbin-runner.js.map
+//# sourceMappingURL=sourcemaps/skylark-applify-runner.js.map

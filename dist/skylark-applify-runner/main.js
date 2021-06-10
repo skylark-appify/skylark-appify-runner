@@ -1,8 +1,8 @@
 /**
- * skylark-jsbin-runner - A version of jsbin-runner  that ported to running on skylarkjs.
+ * skylark-applify-runner - The skylark html application runner library
  * @author Hudaokeji, Inc.
  * @version v0.9.0
- * @link https://github.com/skylark-integration/skylark-jsbin-runner/
+ * @link https://github.com/skylark-applify/skylark-applify-runner/
  * @license MIT
  */
 define(["./runner","./commands","./processor","./proxy-console","./runner","./sandbox","./init"],function(n){return n});

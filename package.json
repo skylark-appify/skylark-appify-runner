@@ -1,22 +1,23 @@
 {
-  "name": "skylark-jsbin-runner",
-  "description": "A version of jsbin-runner  that ported to running on skylarkjs.",
+  "name": "skylark-applify-runner",
+  "description": "The skylark html application runner library",
   "version": "0.9.0",
   "keywords": [
-    "jsbin-runner",
-    "playground"
+    "skylark",
+    "appify",
+    "runner"
   ],
-  "homepage": "https://github.com/skylark-integration/skylark-jsbin-runner/",
+  "homepage": "https://github.com/skylark-applify/skylark-applify-runner/",
   "author": "Hudaokeji, Inc.",
   "scripts": {
     "build": "slib build ."
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/skylark-integration/skylark-jsbin-runner.git"
+    "url": "https://github.com/skylark-applify/skylark-applify-runner.git"
   },
   "bugs": {
-    "url": "https://github.com/skylark-integration/skylark-jsbin-runner/issues"
+    "url": "https://github.com/skylark-applify/skylark-applify-runner/issues"
   },
   "license": "MIT",
   "dependencies": {
