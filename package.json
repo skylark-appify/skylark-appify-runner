@@ -1,5 +1,5 @@
 {
-  "name": "skylark-applify-runner",
+  "name": "skylark-appify-runner",
   "description": "The skylark html application runner library",
   "version": "0.9.0",
   "keywords": [
@@ -7,17 +7,17 @@
     "appify",
     "runner"
   ],
-  "homepage": "https://github.com/skylark-applify/skylark-applify-runner/",
+  "homepage": "https://github.com/skylark-appify/skylark-appify-runner/",
   "author": "Hudaokeji, Inc.",
   "scripts": {
     "build": "slib build ."
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/skylark-applify/skylark-applify-runner.git"
+    "url": "https://github.com/skylark-appify/skylark-appify-runner.git"
   },
   "bugs": {
-    "url": "https://github.com/skylark-applify/skylark-applify-runner/issues"
+    "url": "https://github.com/skylark-appify/skylark-appify-runner/issues"
   },
   "license": "MIT",
   "dependencies": {
