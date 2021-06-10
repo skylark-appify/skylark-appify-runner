@@ -178,9 +178,9 @@ define([
 
 
     return runner.sandbox = {
-      init : function(el) {
+      init : function(el,options) {
         _sandbox = new Sandbox(el,{
-          cssTextTagId : 'jsbin-css'
+          cssTextTagId : options.cssTextTagId, ///'jsbin-css'
         });
       },
 

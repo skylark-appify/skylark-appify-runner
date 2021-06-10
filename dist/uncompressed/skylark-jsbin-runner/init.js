@@ -9,7 +9,7 @@ define([
   /** =========================================================================
    * JS Bin Runner
    * ========================================================================== */
-  function init() {
+  function init(el,options) {
 
 
     window.onload = function () {
@@ -35,7 +35,8 @@ define([
 
       // Set the sandbox target
       ///sandbox.target = document.getElementById('sandbox-wrapper');
-      sandbox.init(document.getElementById('sandbox-wrapper'));
+      ///sandbox.init(document.getElementById('sandbox-wrapper'),options);
+      sandbox.init(el,options);
       // Hook into postMessage
       eventer.on(window, 'message', runner.handleMessage);
 

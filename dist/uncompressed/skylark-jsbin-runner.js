@@ -693,9 +693,9 @@ define('skylark-jsbin-runner/sandbox',[
 
 
     return runner.sandbox = {
-      init : function(el) {
+      init : function(el,options) {
         _sandbox = new Sandbox(el,{
-          cssTextTagId : 'jsbin-css'
+          cssTextTagId : options.cssTextTagId, ///'jsbin-css'
         });
       },
 
@@ -888,7 +888,7 @@ define('skylark-jsbin-runner/init',[
   /** =========================================================================
    * JS Bin Runner
    * ========================================================================== */
-  function init() {
+  function init(el,options) {
 
 
     window.onload = function () {
@@ -914,7 +914,8 @@ define('skylark-jsbin-runner/init',[
 
       // Set the sandbox target
       ///sandbox.target = document.getElementById('sandbox-wrapper');
-      sandbox.init(document.getElementById('sandbox-wrapper'));
+      ///sandbox.init(document.getElementById('sandbox-wrapper'),options);
+      sandbox.init(el,options);
       // Hook into postMessage
       eventer.on(window, 'message', runner.handleMessage);
 
