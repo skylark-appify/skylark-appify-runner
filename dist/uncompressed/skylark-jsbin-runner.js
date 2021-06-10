@@ -160,66 +160,6 @@ define('skylark-jsbin-runner/runner',[
      return skylark.attach("appify.runner", runner);
 
 });
-define('skylark-jsbin-runner/utils',[
-   "./runner"
-],function (runner) {
-    'use strict';
-  /**
-   * Utilities & polyfills
-   */
-
-  var prependChild = function(elem, child) { 
-    elem.insertBefore(child, elem.firstChild); 
-  };
-
-  var addEvent = function(elem, event, fn) {
-    if (elem.addEventListener) {
-      elem.addEventListener(event, fn, false);
-    } else {
-      elem.attachEvent("on" + event, function() {
-        // set the this pointer same as addEventListener when fn is called
-        return(fn.call(elem, window.event));
-      });
-    }
-  };
-
-  if (!window.location.origin) {
-    window.location.origin = window.location.protocol+"//"+window.location.host;
-  }
-
-  var throttle = function (fn, delay) {
-    var timer = null;
-    var throttled = function () {
-      var context = this, args = arguments;
-      throttled.cancel();
-      throttled.timer = setTimeout(function () {
-        fn.apply(context, args);
-      }, delay);
-    };
-
-    throttled.cancel = function () {
-      clearTimeout(throttled.timer);
-    };
-
-    return throttled;
-  };
-
-  var cleanse = function (s) {
-    return (s||'').replace(/[<&]/g, function (m) { return {'&':'&amp;','<':'&lt;'}[m];});
-  };
-
-  var getIframeWindow = function (iframeElement) {
-      return iframeElement.contentWindow || iframeElement.contentDocument.parentWindow;
-  };
-
-  return runner.utils = {
-    prependChild,
-    addEvent,
-    throttle,
-    cleanse,
-    getIframeWindow
-  }
-});
 define('skylark-jsbin-runner/proxy-console',[
    "./runner"
 ],function (runner) {
@@ -577,10 +517,9 @@ define('skylark-jsbin-runner/sandbox',[
    "skylark-loopprotect",
    "skylark-domx-plugins-sandboxs/sandbox",
    "./runner",
-   "./utils",
    "./proxy-console",
    "./processor"
-],function (loopProtect,Sandbox,runner,utils,proxyConsole,processor) {
+],function (loopProtect,Sandbox,runner,proxyConsole,processor) {
     'use strict';
   /** ============================================================================
    * Sandbox
@@ -886,9 +825,8 @@ define('skylark-jsbin-runner/sandbox',[
 });
 define('skylark-jsbin-runner/commands',[
    "./runner",
-   "./utils",
    "./sandbox",
-],function (runner,utils,sandbox) {
+],function (runner,sandbox) {
   /** ============================================================================
    * JS Bin Runner
    * Accepts incoming postMessage events and updates a live iframe accordingly.
@@ -940,10 +878,10 @@ define('skylark-jsbin-runner/commands',[
 
 });
 define('skylark-jsbin-runner/init',[
+  "skylark-domx-eventer",
   "./runner",
-  "./utils",
   "./sandbox",
-],function(runner,utils,sandbox){
+],function(eventer,runner,sandbox){
     'use strict';
 
 
@@ -978,7 +916,7 @@ define('skylark-jsbin-runner/init',[
       ///sandbox.target = document.getElementById('sandbox-wrapper');
       sandbox.init(document.getElementById('sandbox-wrapper'));
       // Hook into postMessage
-      utils.addEvent(window, 'message', runner.handleMessage);
+      eventer.on(window, 'message', runner.handleMessage);
 
     };
 
@@ -995,7 +933,6 @@ define('skylark-jsbin-runner/main',[
 	"./proxy-console",
 	"./runner",
 	"./sandbox",
-	"./utils",
 	"./init"
 ],function(runner){
 	return runner;

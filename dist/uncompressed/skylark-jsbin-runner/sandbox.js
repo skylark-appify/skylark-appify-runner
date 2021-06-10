@@ -2,10 +2,9 @@ define([
    "skylark-loopprotect",
    "skylark-domx-plugins-sandboxs/sandbox",
    "./runner",
-   "./utils",
    "./proxy-console",
    "./processor"
-],function (loopProtect,Sandbox,runner,utils,proxyConsole,processor) {
+],function (loopProtect,Sandbox,runner,proxyConsole,processor) {
     'use strict';
   /** ============================================================================
    * Sandbox

@@ -5,5 +5,5 @@
  * @link https://github.com/skylark-integration/skylark-jsbin-runner/
  * @license MIT
  */
-define(["./runner","./utils","./sandbox"],function(e,o,s){"use strict";var n={render:function(e){if(e.options.injectCSS&&s.isActive()){let o=e.source||e.codes&&e.codes.css;return s.injectCssText(o)}return s.render(e)},"console:run":function(e){s.eval(e)},"console:load:script":function(o){s.injectScript(o,function(s){if(s)return e.postMessage("console:load:script:error",s);e.postMessage("console:load:script:success",o)})},"console:load:dom":function(o){s.injectDOM(o,function(o){if(o)return e.postMessage("console:load:dom:error",o);e.postMessage("console:load:dom:success")})}};return e.commands=n});
+define(["./runner","./sandbox"],function(e,o){"use strict";var s={render:function(e){if(e.options.injectCSS&&o.isActive()){let s=e.source||e.codes&&e.codes.css;return o.injectCssText(s)}return o.render(e)},"console:run":function(e){o.eval(e)},"console:load:script":function(s){o.injectScript(s,function(o){if(o)return e.postMessage("console:load:script:error",o);e.postMessage("console:load:script:success",s)})},"console:load:dom":function(s){o.injectDOM(s,function(o){if(o)return e.postMessage("console:load:dom:error",o);e.postMessage("console:load:dom:success")})}};return e.commands=s});
 //# sourceMappingURL=sourcemaps/commands.js.map

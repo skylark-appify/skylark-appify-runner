@@ -1,8 +1,7 @@
 define([
    "./runner",
-   "./utils",
    "./sandbox",
-],function (runner,utils,sandbox) {
+],function (runner,sandbox) {
   /** ============================================================================
    * JS Bin Runner
    * Accepts incoming postMessage events and updates a live iframe accordingly.

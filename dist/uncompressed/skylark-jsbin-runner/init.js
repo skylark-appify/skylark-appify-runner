@@ -1,8 +1,8 @@
 define([
+  "skylark-domx-eventer",
   "./runner",
-  "./utils",
   "./sandbox",
-],function(runner,utils,sandbox){
+],function(eventer,runner,sandbox){
     'use strict';
 
 
@@ -37,7 +37,7 @@ define([
       ///sandbox.target = document.getElementById('sandbox-wrapper');
       sandbox.init(document.getElementById('sandbox-wrapper'));
       // Hook into postMessage
-      utils.addEvent(window, 'message', runner.handleMessage);
+      eventer.on(window, 'message', runner.handleMessage);
 
     };
 
